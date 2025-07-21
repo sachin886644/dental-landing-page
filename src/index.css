@@ -61,7 +61,8 @@ body {
 }
 
 .section {
-  padding: 80px 0;
+  padding: 120px 0 80px 0; /* Increased top padding to avoid navbar overlap */
+  scroll-margin-top: 80px; /* Ensures proper scroll positioning */
 }
 
 .section-title {
@@ -111,7 +112,8 @@ body {
 
 @media (max-width: 768px) {
   .section {
-    padding: 60px 0;
+    padding: 100px 0 60px 0; /* Adjusted for mobile navbar height */
+    scroll-margin-top: 70px;
   }
   
   .section-title h2 {

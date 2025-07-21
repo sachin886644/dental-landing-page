@@ -1,5 +1,6 @@
 .team {
   background: var(--white);
+  scroll-margin-top: 80px; /* Ensures proper scroll positioning */
 }
 
 .team-grid {

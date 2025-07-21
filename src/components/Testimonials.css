@@ -1,5 +1,6 @@
 .testimonials {
   background: var(--light-gray);
+  scroll-margin-top: 80px; /* Ensures proper scroll positioning */
 }
 
 .testimonials-container {
