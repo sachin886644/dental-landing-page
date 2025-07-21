@@ -1,0 +1,320 @@
+.team {
+  background: var(--white);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.team-card {
+  background: var(--white);
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.team-image {
+  height: 200px;
+  background: var(--gradient);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+.doctor-placeholder {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.doctor-icon {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.specialty-badge {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.team-content {
+  padding: 30px;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.member-name {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.member-position {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.experience-badge {
+  background: var(--light-gray);
+  color: var(--text-dark);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.member-info {
+  margin-bottom: 25px;
+}
+
+.education {
+  margin-bottom: 15px;
+  padding: 12px;
+  background: var(--light-gray);
+  border-radius: 10px;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.info-value {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-left: 8px;
+}
+
+.member-description {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.member-achievements {
+  margin-bottom: 25px;
+}
+
+.member-achievements h4 {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.achievement-check {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.team-footer {
+  text-align: center;
+}
+
+.consult-btn {
+  background: var(--gradient);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.consult-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
+}
+
+.team-cta {
+  background: var(--light-gray);
+  border-radius: 25px;
+  padding: 50px;
+  text-align: center;
+}
+
+.team-cta-content h3 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.team-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.benefit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.benefit-text h4 {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.benefit-text p {
+  color: var(--text-light);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 968px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .team-benefits {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .team-cta {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .team-content {
+    padding: 25px 20px;
+  }
+
+  .team-image {
+    height: 150px;
+  }
+
+  .doctor-icon {
+    font-size: 3rem;
+  }
+
+  .member-name {
+    font-size: 1.3rem;
+  }
+
+  .team-cta {
+    padding: 30px 20px;
+  }
+
+  .team-cta-content h3 {
+    font-size: 1.7rem;
+  }
+
+  .benefit {
+    padding: 25px 15px;
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .benefit-text h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-content {
+    padding: 20px 15px;
+  }
+
+  .team-cta {
+    padding: 25px 15px;
+  }
+
+  .specialty-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  .achievement-item {
+    font-size: 0.8rem;
+  }
+}

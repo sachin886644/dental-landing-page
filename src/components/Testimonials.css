@@ -1,0 +1,374 @@
+.testimonials {
+  background: var(--light-gray);
+}
+
+.testimonials-container {
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.testimonials-slider {
+  overflow: hidden;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 50px;
+  text-align: center;
+  border-radius: 25px;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+
+.patient-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(46, 139, 87, 0.2);
+}
+
+.avatar-icon {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.patient-name {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.patient-location {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.treatment-tag {
+  background: rgba(46, 139, 87, 0.1);
+  color: var(--primary-color);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 1.2rem;
+  color: #ddd;
+  transition: color 0.3s ease;
+}
+
+.star.filled {
+  color: #FFD700;
+}
+
+.testimonial-content {
+  position: relative;
+  text-align: center;
+}
+
+.quote-icon {
+  font-size: 4rem;
+  color: var(--primary-color);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 20px;
+  font-family: serif;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.slider-btn {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slider-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background: #ddd;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: var(--secondary-color);
+}
+
+.testimonials-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 50px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
+}
+
+.testimonials-stats .stat {
+  text-align: center;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.testimonials-stats .stat:hover {
+  transform: translateY(-5px);
+}
+
+.testimonials-stats .stat-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.testimonials-stats .stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.testimonials-stats .stat-label {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.testimonials-cta {
+  text-align: center;
+  background: white;
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-cta h3 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.testimonials-cta p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 968px) {
+  .testimonials-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 40px 30px;
+  }
+
+  .testimonial-card {
+    padding: 40px 30px;
+  }
+
+  .testimonial-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .patient-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .patient-avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .avatar-icon {
+    font-size: 2rem;
+  }
+
+  .slider-controls {
+    padding: 0 10px;
+  }
+
+  .slider-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+
+  .quote-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+  }
+
+  .patient-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .avatar-icon {
+    font-size: 1.5rem;
+  }
+
+  .patient-name {
+    font-size: 1.2rem;
+  }
+
+  .testimonials-cta {
+    padding: 40px 25px;
+  }
+
+  .testimonials-cta h3 {
+    font-size: 1.7rem;
+  }
+
+  .slider-controls {
+    display: none; /* Hide on mobile for better touch experience */
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 25px 15px;
+  }
+
+  .testimonials-cta {
+    padding: 30px 20px;
+  }
+
+  .testimonials-stats .stat-number {
+    font-size: 2rem;
+  }
+
+  .testimonials-stats .stat-icon {
+    font-size: 2rem;
+  }
+}
