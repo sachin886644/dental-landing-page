@@ -1,5 +1,4 @@
 import React from 'react'
-import './Services.css'
 
 const Services = () => {
   const services = [
@@ -42,84 +41,63 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" className="section services">
+    <section id="services" className="section bg-slate-50">
       <div className="container">
-        <div className="section-title">
-          <h2>Our Services</h2>
-          <p>
-            Comprehensive dental care services to meet all your oral health needs
-          </p>
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-slate-800 mb-4 inline-block relative after:block after:w-16 after:h-1 after:bg-gradient-to-r from-primary to-secondary after:mt-2">Our Services</h2>
+          <p className="text-slate-500 max-w-xl mx-auto">Comprehensive dental care services to meet all your oral health needs</p>
         </div>
-
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <div key={index} className="service-card card">
-              <div className="service-header">
-                <div className="service-icon">{service.icon}</div>
-                <h3 className="service-title">{service.title}</h3>
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 mb-20">
+          {services.map((service,i) => (
+            <div key={i} className="relative group bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition overflow-hidden">
+              <span className="absolute top-0 left-0 h-1 w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-500" />
+              <div className="text-center mb-5">
+                <div className="text-5xl mb-4 drop-shadow-sm">{service.icon}</div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">{service.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed text-left">{service.description}</p>
               </div>
-              
-              <div className="service-content">
-                <p className="service-description">{service.description}</p>
-                
-                <div className="service-features">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="feature-item">
-                      <span className="feature-check">✓</span>
-                      <span className="feature-text">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="space-y-2 mb-6">
+                {service.features.map((f,fi) => (
+                  <div key={fi} className="flex items-center gap-3 text-sm">
+                    <span className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center text-[10px] font-bold">✓</span>
+                    <span className="font-medium text-slate-700">{f}</span>
+                  </div>
+                ))}
               </div>
-
-              <div className="service-footer">
-                <button className="service-btn">
-                  Learn More
-                </button>
+              <div className="text-center border-t border-slate-200 pt-4">
+                <button className="btn-outline text-xs px-6 py-2">Learn More</button>
               </div>
             </div>
           ))}
         </div>
-
-        <div className="services-cta">
-          <div className="cta-content">
-            <h3>Need a Consultation?</h3>
-            <p>
-              Our expert dentists are ready to provide personalized treatment plans 
-              tailored to your specific needs and budget.
-            </p>
-            <div className="cta-actions">
-              <button className="btn">Book Consultation</button>
-              <div className="cta-contact">
-                <span>or call us at</span>
-                <a href="tel:+1234567890" className="phone-link">(123) 456-7890</a>
+        <div className="relative bg-white rounded-3xl p-10 shadow-xl overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-5" />
+          <div className="relative grid lg:grid-cols-2 gap-10 items-center">
+            <div className="text-center lg:text-left space-y-5">
+              <h3 className="text-3xl font-bold text-slate-800">Need a Consultation?</h3>
+              <p className="text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">Our expert dentists are ready to provide personalized treatment plans tailored to your specific needs and budget.</p>
+              <div className="flex flex-col items-center lg:items-start gap-4">
+                <button className="btn-gradient px-8">Book Consultation</button>
+                <div className="text-slate-500 text-sm flex items-center gap-2">
+                  <span>or call us at</span>
+                  <a href="tel:+1234567890" className="text-primary font-semibold">(123) 456-7890</a>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div className="cta-features">
-            <div className="cta-feature">
-              <div className="cta-feature-icon">💰</div>
-              <div className="cta-feature-text">
-                <div className="cta-feature-title">Affordable Plans</div>
-                <div className="cta-feature-desc">Flexible payment options</div>
-              </div>
-            </div>
-            
-            <div className="cta-feature">
-              <div className="cta-feature-icon">🕒</div>
-              <div className="cta-feature-text">
-                <div className="cta-feature-title">Emergency Care</div>
-                <div className="cta-feature-desc">24/7 emergency support</div>
-              </div>
-            </div>
-            
-            <div className="cta-feature">
-              <div className="cta-feature-icon">🛡️</div>
-              <div className="cta-feature-text">
-                <div className="cta-feature-title">Insurance Accepted</div>
-                <div className="cta-feature-desc">Most insurance plans welcomed</div>
-              </div>
+            <div className="grid sm:grid-cols-3 gap-6 relative">
+              { [
+                ['💰','Affordable Plans','Flexible payment options'],
+                ['🕒','Emergency Care','24/7 emergency support'],
+                ['🛡️','Insurance Accepted','Most insurance plans welcomed']
+              ].map(([icon, title, desc]) => (
+                <div key={title} className="flex flex-col sm:flex-row sm:items-center gap-4 bg-primary/5 hover:bg-primary/10 p-5 rounded-xl transition">
+                  <div className="text-3xl">{icon}</div>
+                  <div>
+                    <div className="font-semibold text-slate-800 text-sm">{title}</div>
+                    <div className="text-xs text-slate-500">{desc}</div>
+                  </div>
+                </div>
+              )) }
             </div>
           </div>
         </div>

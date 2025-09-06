@@ -1,299 +1,172 @@
 import React, { useState } from 'react'
-import './Contact.css'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    date: '',
-    time: '',
-    message: ''
+    name: '', email: '', phone: '', service: '', date: '', time: '', message: ''
   })
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission here
-    alert('Thank you for your appointment request! We will contact you soon.')
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      date: '',
-      time: '',
-      message: ''
-    })
-  }
-
   const services = [
-    'General Checkup',
-    'Teeth Cleaning',
-    'Cavity Treatment',
-    'Root Canal',
-    'Teeth Whitening',
-    'Dental Implants',
-    'Orthodontics',
-    'Cosmetic Dentistry',
-    'Emergency Care',
-    'Other'
+    'General Checkup','Teeth Cleaning','Cavity Treatment','Root Canal','Teeth Whitening','Dental Implants','Orthodontics','Cosmetic Dentistry','Emergency Care','Other'
+  ]
+  const timeSlots = [
+    '9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM'
   ]
 
-  const timeSlots = [
-    '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-    '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM',
-    '5:00 PM', '5:30 PM', '6:00 PM'
+  const scheduleRows = [
+    ['Monday - Friday','9:00 AM - 6:00 PM'],
+    ['Saturday','9:00 AM - 4:00 PM'],
+    ['Sunday','10:00 AM - 2:00 PM']
   ]
+
+  const infoItems = [
+    {
+      icon: '📍',
+      title: 'Visit Our Clinic',
+      body: '123 Dental Care Street\nMedical Complex, 2nd Floor\nMumbai, Maharashtra 400001'
+    },
+    {
+      icon: '📞',
+      title: 'Call Us',
+      body: (
+        <span>
+          <a href='tel:+912234567890' className='text-primary font-medium block'>+91 22 3456 7890</a>
+          <a href='tel:+919876543210' className='text-primary font-medium block'>+91 98765 43210</a>
+          <span className='text-red-500 text-xs font-semibold'>Emergency: 24/7 Available</span>
+        </span>
+      )
+    },
+    {
+      icon: '✉️',
+      title: 'Email Us',
+      body: (
+        <span>
+          <a href='mailto:info@ambicadental.com' className='text-primary font-medium block'>info@ambicadental.com</a>
+          <a href='mailto:appointments@ambicadental.com' className='text-primary font-medium block'>appointments@ambicadental.com</a>
+        </span>
+      )
+    },
+    {
+      icon: '🕒',
+      title: 'Opening Hours',
+      body: (
+        <div className='space-y-2 text-xs'>
+          {scheduleRows.map(r => (
+            <div key={r[0]} className='flex justify-between gap-4 border-b last:border-b-0 border-slate-200 pb-1'>
+              <span>{r[0]}</span><span>{r[1]}</span>
+            </div>
+          ))}
+        </div>
+      )
+    }
+  ]
+
+  const featureItems = [
+    ['🚗','Free Parking','Complimentary parking available for all patients'],
+    ['♿','Wheelchair Accessible','Fully accessible facility for patients with mobility needs'],
+    ['🏥','Modern Facility','State-of-the-art equipment in a comfortable environment'],
+    ['🛡️','Insurance Accepted','We accept most dental insurance plans']
+  ]
+
+  const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  const handleSubmit = (e) => { e.preventDefault(); alert('Thank you for your appointment request! We will contact you soon.'); setFormData({ name:'', email:'', phone:'', service:'', date:'', time:'', message:'' }) }
 
   return (
-    <section id="contact" className="section contact">
+    <section id="contact" className="section bg-white">
       <div className="container">
-        <div className="section-title">
-          <h2>Contact Us</h2>
-          <p>
-            Schedule your appointment or get in touch with our team
-          </p>
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-slate-800 mb-4 inline-block relative after:block after:w-16 after:h-1 after:bg-gradient-to-r from-primary to-secondary after:mt-2">Contact Us</h2>
+          <p className="text-slate-500 max-w-xl mx-auto">Schedule your appointment or get in touch with our team</p>
         </div>
-
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-header">
-              <h3>Get in Touch</h3>
-              <p>We're here to help you achieve your perfect smile</p>
+        <div className="grid lg:grid-cols-2 gap-14 mb-20 items-start">
+          <div className="bg-slate-50 rounded-3xl p-10 space-y-10">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">Get in Touch</h3>
+              <p className="text-slate-500">We're here to help you achieve your perfect smile</p>
             </div>
-
-            <div className="info-items">
-              <div className="info-item">
-                <div className="info-icon">📍</div>
-                <div className="info-details">
-                  <h4>Visit Our Clinic</h4>
-                  <p>123 Dental Care Street<br />Medical Complex, 2nd Floor<br />Mumbai, Maharashtra 400001</p>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <div className="info-icon">📞</div>
-                <div className="info-details">
-                  <h4>Call Us</h4>
-                  <p>
-                    <a href="tel:+912234567890">+91 22 3456 7890</a><br />
-                    <a href="tel:+919876543210">+91 98765 43210</a><br />
-                    <span className="emergency">Emergency: 24/7 Available</span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <div className="info-icon">✉️</div>
-                <div className="info-details">
-                  <h4>Email Us</h4>
-                  <p>
-                    <a href="mailto:info@ambicadental.com">info@ambicadental.com</a><br />
-                    <a href="mailto:appointments@ambicadental.com">appointments@ambicadental.com</a>
-                  </p>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <div className="info-icon">🕒</div>
-                <div className="info-details">
-                  <h4>Opening Hours</h4>
-                  <div className="hours">
-                    <div className="hours-row">
-                      <span>Monday - Friday</span>
-                      <span>9:00 AM - 6:00 PM</span>
-                    </div>
-                    <div className="hours-row">
-                      <span>Saturday</span>
-                      <span>9:00 AM - 4:00 PM</span>
-                    </div>
-                    <div className="hours-row">
-                      <span>Sunday</span>
-                      <span>10:00 AM - 2:00 PM</span>
-                    </div>
+            <div className="space-y-6">
+              {infoItems.map(item => (
+                <div key={item.title} className="flex gap-4 p-5 bg-white rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center text-xl shadow">{item.icon}</div>
+                  <div className="text-sm leading-relaxed">
+                    <h4 className="font-semibold text-slate-800 mb-1 text-base">{item.title}</h4>
+                    {typeof item.body === 'string' ? item.body.split('\n').map(line => <p key={line} className='text-slate-500'>{line}</p>) : item.body}
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-
-            <div className="social-links">
-              <h4>Follow Us</h4>
-              <div className="social-icons">
-                <a href="#" className="social-link">📘 Facebook</a>
-                <a href="#" className="social-link">📷 Instagram</a>
-                <a href="#" className="social-link">🐦 Twitter</a>
-                <a href="#" className="social-link">💼 LinkedIn</a>
+            <div>
+              <h4 className="font-semibold text-slate-800 mb-3 text-sm uppercase tracking-wide">Follow Us</h4>
+              <div className="flex flex-wrap gap-3 text-xs">
+                {['📘 Facebook','📷 Instagram','🐦 Twitter','💼 LinkedIn'].map(s => (
+                  <a key={s} href="#" className="px-4 py-2 bg-white rounded-full shadow-sm hover:bg-primary/10 text-slate-600 hover:text-primary transition font-medium">{s}</a>
+                ))}
               </div>
             </div>
           </div>
-
-          <div className="appointment-form">
-            <div className="form-header">
-              <h3>Book Your Appointment</h3>
-              <p>Fill out the form below and we'll get back to you shortly</p>
+          <div className="bg-white rounded-3xl p-10 shadow-xl border border-slate-200">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">Book Your Appointment</h3>
+              <p className="text-slate-500 text-sm">Fill out the form below and we'll get back to you shortly</p>
             </div>
-
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name">Full Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter your full name"
-                  />
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-xs font-semibold text-slate-600">Full Name *</label>
+                  <input id="name" name="name" required value={formData.name} onChange={handleChange} placeholder="Enter your full name" className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm" />
                 </div>
-                
-                <div className="form-group">
-                  <label htmlFor="email">Email Address *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter your email"
-                  />
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-xs font-semibold text-slate-600">Email Address *</label>
+                  <input id="email" type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="Enter your email" className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm" />
                 </div>
               </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number *</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter your phone number"
-                  />
+              <div className="grid md:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-xs font-semibold text-slate-600">Phone Number *</label>
+                  <input id="phone" name="phone" required value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm" />
                 </div>
-                
-                <div className="form-group">
-                  <label htmlFor="service">Service Needed</label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                  >
+                <div className="space-y-2">
+                  <label htmlFor="service" className="text-xs font-semibold text-slate-600">Service Needed</label>
+                  <select id="service" name="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm">
                     <option value="">Select a service</option>
-                    {services.map((service, index) => (
-                      <option key={index} value={service}>{service}</option>
-                    ))}
+                    {services.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </div>
               </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="date">Preferred Date</label>
-                  <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    min={new Date().toISOString().split('T')[0]}
-                  />
+              <div className="grid md:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <label htmlFor="date" className="text-xs font-semibold text-slate-600">Preferred Date</label>
+                  <input id="date" type="date" name="date" value={formData.date} onChange={handleChange} min={new Date().toISOString().split('T')[0]} className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm" />
                 </div>
-                
-                <div className="form-group">
-                  <label htmlFor="time">Preferred Time</label>
-                  <select
-                    id="time"
-                    name="time"
-                    value={formData.time}
-                    onChange={handleChange}
-                  >
+                <div className="space-y-2">
+                  <label htmlFor="time" className="text-xs font-semibold text-slate-600">Preferred Time</label>
+                  <select id="time" name="time" value={formData.time} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm">
                     <option value="">Select a time</option>
-                    {timeSlots.map((time, index) => (
-                      <option key={index} value={time}>{time}</option>
-                    ))}
+                    {timeSlots.map(t => <option key={t} value={t}>{t}</option>)}
                   </select>
                 </div>
               </div>
-
-              <div className="form-group">
-                <label htmlFor="message">Additional Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="4"
-                  placeholder="Tell us about your dental concerns or any specific requirements..."
-                ></textarea>
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-xs font-semibold text-slate-600">Additional Message</label>
+                <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} placeholder="Tell us about your dental concerns or any specific requirements..." className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 bg-slate-50 focus:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm resize-y" />
               </div>
-
-              <div className="form-footer">
-                <button type="submit" className="submit-btn btn">
-                  Book Appointment
-                </button>
-                
-                <div className="form-note">
-                  <p>
-                    * Required fields. We'll confirm your appointment within 24 hours.
-                    For urgent matters, please call us directly.
-                  </p>
-                </div>
+              <div className="space-y-4">
+                <button type="submit" className="w-full btn-gradient py-4 font-semibold text-sm">Book Appointment</button>
+                <p className="text-center text-xs text-slate-500 leading-relaxed">* Required fields. We'll confirm your appointment within 24 hours. For urgent matters, please call us directly.</p>
               </div>
             </form>
           </div>
         </div>
-
-        <div className="contact-features">
-          <div className="feature">
-            <div className="feature-icon">🚗</div>
-            <div className="feature-content">
-              <h4>Free Parking</h4>
-              <p>Complimentary parking available for all patients</p>
+        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6 bg-slate-50 p-10 rounded-3xl">
+          {featureItems.map(([icon,title,desc]) => (
+            <div key={title} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition flex flex-col items-center text-center">
+              <div className="text-4xl mb-3">{icon}</div>
+              <h4 className="font-semibold text-slate-800 mb-1 text-sm">{title}</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
             </div>
-          </div>
-          
-          <div className="feature">
-            <div className="feature-icon">♿</div>
-            <div className="feature-content">
-              <h4>Wheelchair Accessible</h4>
-              <p>Fully accessible facility for patients with mobility needs</p>
-            </div>
-          </div>
-          
-          <div className="feature">
-            <div className="feature-icon">🏥</div>
-            <div className="feature-content">
-              <h4>Modern Facility</h4>
-              <p>State-of-the-art equipment in a comfortable environment</p>
-            </div>
-          </div>
-          
-          <div className="feature">
-            <div className="feature-icon">🛡️</div>
-            <div className="feature-content">
-              <h4>Insurance Accepted</h4>
-              <p>We accept most dental insurance plans</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
-
 export default Contact

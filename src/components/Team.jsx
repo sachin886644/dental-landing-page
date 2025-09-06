@@ -1,5 +1,4 @@
 import React from 'react'
-import './Team.css'
 
 const Team = () => {
   const teamMembers = [
@@ -40,93 +39,63 @@ const Team = () => {
       achievements: ['Child-Friendly Practice Award', 'Pediatric Care Excellence', '4000+ young patients']
     }
   ]
+  const benefits = [
+    ['🎓','Highly Qualified','All our dentists are highly qualified with advanced degrees and certifications'],
+    ['💡','Latest Techniques','Continuous learning and adoption of cutting-edge dental technologies'],
+    ['❤️','Patient-Focused','Personalized care with emphasis on comfort and patient satisfaction']
+  ]
 
   return (
-    <section id="team" className="section team">
+    <section id="team" className="section bg-white">
       <div className="container">
-        <div className="section-title">
-          <h2>Meet Our Expert Team</h2>
-          <p>
-            Experienced professionals dedicated to providing exceptional dental care
-          </p>
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-slate-800 mb-4 inline-block relative after:block after:w-16 after:h-1 after:bg-gradient-to-r from-primary to-secondary after:mt-2">Meet Our Expert Team</h2>
+          <p className="text-slate-500 max-w-xl mx-auto">Experienced professionals dedicated to providing exceptional dental care</p>
         </div>
-
-        <div className="team-grid">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="team-card card">
-              <div className="team-image">
-                <div className="doctor-placeholder">
-                  <div className="doctor-icon">👨‍⚕️</div>
-                  <div className="specialty-badge">{member.specialization}</div>
+        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+          {teamMembers.map((m,i) => (
+            <div key={i} className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition flex flex-col">
+              <div className="h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative">
+                <div className="text-center text-white">
+                  <div className="text-6xl mb-2">👨‍⚕️</div>
+                  <div className="bg-white/90 text-primary text-xs font-semibold px-3 py-1 rounded-full inline-block">{m.specialization}</div>
                 </div>
               </div>
-
-              <div className="team-content">
-                <div className="team-header">
-                  <h3 className="member-name">{member.name}</h3>
-                  <p className="member-position">{member.position}</p>
-                  <div className="member-experience">
-                    <span className="experience-badge">{member.experience}</span>
-                  </div>
+              <div className="p-8 flex flex-col flex-1">
+                <div className="text-center pb-5 mb-5 border-b border-slate-200">
+                  <h3 className="text-xl font-bold text-slate-800 mb-1">{m.name}</h3>
+                  <p className="text-primary font-semibold text-sm mb-2">{m.position}</p>
+                  <span className="inline-block bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full">{m.experience}</span>
                 </div>
-
-                <div className="member-info">
-                  <div className="education">
-                    <span className="info-label">Education:</span>
-                    <span className="info-value">{member.education}</span>
-                  </div>
-                  
-                  <p className="member-description">{member.description}</p>
+                <div className="mb-5 text-center">
+                  <div className="bg-slate-100 text-slate-600 text-xs font-medium px-3 py-2 rounded-lg mb-4">Education: <span className="font-normal">{m.education}</span></div>
+                  <p className="text-slate-500 text-sm italic leading-relaxed">{m.description}</p>
                 </div>
-
-                <div className="member-achievements">
-                  <h4>Key Achievements</h4>
-                  <ul className="achievements-list">
-                    {member.achievements.map((achievement, achievementIndex) => (
-                      <li key={achievementIndex} className="achievement-item">
-                        <span className="achievement-check">🏆</span>
-                        <span>{achievement}</span>
-                      </li>
+                <div className="mb-5">
+                  <h4 className="text-xs font-semibold tracking-wide text-slate-700 mb-2">KEY ACHIEVEMENTS</h4>
+                  <ul className="space-y-1">
+                    {m.achievements.map((a,ai) => (
+                      <li key={ai} className="flex items-center gap-2 text-xs text-slate-500"><span>🏆</span>{a}</li>
                     ))}
                   </ul>
                 </div>
-
-                <div className="team-footer">
-                  <button className="consult-btn">Book Consultation</button>
+                <div className="mt-auto">
+                  <button className="w-full btn-gradient py-3 text-xs font-semibold">Book Consultation</button>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        <div className="team-cta">
-          <div className="team-cta-content">
-            <h3>Why Choose Our Team?</h3>
-            <div className="team-benefits">
-              <div className="benefit">
-                <div className="benefit-icon">🎓</div>
-                <div className="benefit-text">
-                  <h4>Highly Qualified</h4>
-                  <p>All our dentists are highly qualified with advanced degrees and certifications</p>
-                </div>
+        <div className="mt-24 bg-slate-50 rounded-3xl p-12 text-center">
+          <h3 className="text-3xl font-bold text-slate-800 mb-12">Why Choose Our Team?</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {benefits.map(([icon,title,desc]) => (
+              <div key={title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition flex flex-col items-center text-center">
+                <div className="text-5xl mb-5">{icon}</div>
+                <h4 className="font-semibold text-slate-800 mb-2">{title}</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
               </div>
-              
-              <div className="benefit">
-                <div className="benefit-icon">💡</div>
-                <div className="benefit-text">
-                  <h4>Latest Techniques</h4>
-                  <p>Continuous learning and adoption of cutting-edge dental technologies</p>
-                </div>
-              </div>
-              
-              <div className="benefit">
-                <div className="benefit-icon">❤️</div>
-                <div className="benefit-text">
-                  <h4>Patient-Focused</h4>
-                  <p>Personalized care with emphasis on comfort and patient satisfaction</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ambica Dental Hospital - Premier Dental Care</title>
     <meta name="description" content="Ambica Dental Hospital provides comprehensive dental care with modern technology and experienced professionals. Book your appointment today!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      // Dark mode preference persistence
+      try {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch(_){}
+    </script>
   </head>
   <body>
     <div id="root"></div>
